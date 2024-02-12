@@ -1,10 +1,10 @@
 <?php
 
-require(db_connect.php);
+require("db_connect.php");
 
 // Získání dat poslaných AJAXem
 $data = json_decode($_POST['data']);
-pirnt_r $data;
+print_r($data);
 
 // Zajištění, že dostanete požadovaná data
 if ($data)

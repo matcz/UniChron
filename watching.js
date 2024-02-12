@@ -7,7 +7,7 @@ function change(number, url, max)
 
 	if (checkbox.is(':checked'))
 	{
-		action = confirm("Chcete označit i předchozí epizody jako shlédnuté?");
+		action = confirm("Chcete označit i předchozí epizody jako zhlédnuté?");
 		beforeYes = action;
 	}
 	else
