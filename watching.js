@@ -43,32 +43,20 @@ function updateDatabase(number, isChecked, action, url)
 		}
 	}
 
-	let data =
-	{
-		numInUniverse: number,
-		action: actionValue,
-		url:url
-	};
-
-	$.ajax(
-	{
-		type: "POST",
-		url: "watching.php",
-		data: JSON.stringify(data),
-		contentType: "application/json",
-		success:
-		function(response)
-		{
-			console.log("Odpověď od serveru:", response);
-		},
-		error:
-		function(xhr, status, error)
-		{
-			//console.error("Došlo k chybě:", error);
-			//console.log(xhr + status + error);
-		}
-	});
+  const formData = new FormData();
+  formData.append("numInUniverse", number)
+  formData.append("action", actionValue)
+  formData.append("url", url)
+  try {
+    fetch("mujtest.php", {
+     method: "POST",
+     body: formData
+    })
+  } catch(err) {
+    console.error("Doslo k chybe", err)
+  }
 }
+
 function fixwatch(number, beforeYes, afterNo, max)
 {
 	//console.log("Number: " + number + ", Max: " + max); // Kontrolní výpis pro ladění
